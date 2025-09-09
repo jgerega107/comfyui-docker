@@ -1,0 +1,25 @@
+services:
+  comfyui:
+    image: comfyui:local
+    build: .
+    ports:
+      - 8188:8188
+    volumes:
+      - app:/usr/src/venv # Required mount so you don't have to redownload reqs every time
+      - /srv/docker/data/comfyui/models:/usr/src/app/models # Change to your models path
+      - /srv/docker/data/comfyui/output:/usr/src/app/output # Change to your output path
+    user: 1000:1000 # Change to your user:group id optionally
+    # Use if you use Docker CDI for Nvidia GPU access
+    devices:
+      - nvidia.com/gpu=all
+    # Uncomment if you use traditional Nvidia CTK and remove devices section
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+volumes:
+  app:
