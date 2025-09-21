@@ -1,5 +1,6 @@
 # ComfyUI Docker
 
-Slimmed down/simplfiied docker container used to run ComfyUI in a docker container
+### Work in progress!
+Slimmed down/simplfiied docker container used to run ComfyUI in a docker container. Supports hardware acceleration via Nvidia GPUs.
 
-# At the moment, only supports Nvidia!!!
+#### NOTE: At the moment, only supports Nvidia!
